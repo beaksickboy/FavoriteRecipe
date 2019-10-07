@@ -1,19 +1,24 @@
 import 'package:favorite_menu/models/meal.dart';
+import 'package:favorite_menu/widgets/meal_detail.dart';
 import 'package:flutter/material.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   MealItem({
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem
   });
 
   String get complexityText {
@@ -42,10 +47,20 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  mealDetail(context) {
+    Navigator.of(context).pushNamed(MealDetail.routeName, arguments: id)
+      .then((result) {
+        print(result);
+        if (result != null) {
+          removeItem(result);
+        }
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => this.mealDetail(context),
       child: Card(
         elevation: 4,
         margin: EdgeInsets.all(10),

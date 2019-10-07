@@ -9,9 +9,9 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Scroll is main axis
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Menu'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Menu'),
+      // ),
       body: GridView(
         padding: EdgeInsets.all(25),
         children: DUMMY_CATEGORIES.map(this.createCategory).toList(),

@@ -1,5 +1,8 @@
 import 'package:favorite_menu/categories-screen.dart';
 import 'package:favorite_menu/category_meals.dart';
+import 'package:favorite_menu/pages/filter_screen.dart';
+import 'package:favorite_menu/pages/tabs_screen.dart';
+import 'package:favorite_menu/widgets/meal_detail.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,9 +25,12 @@ class MyApp extends StatelessWidget {
       ),
       // home: CategoriesScreen(),
       routes: {
-        '/': (ctx) => CategoriesScreen(),
-        CategoryMeals.routeName: (ctx) => CategoryMeals() 
+        '/': (ctx) => TabsScreen(),
+        MealDetail.routeName: (ctx) => MealDetail(),
+        CategoryMeals.routeName: (ctx) => CategoryMeals(),
+        FilterScreen.routeName: (ctx) => FilterScreen()
       },
+      // onGenerateRoute: ,
     );
   }
 }
