@@ -7,6 +7,10 @@ import 'package:flutter/widgets.dart';
 class CategoryMeals extends StatefulWidget {
   static const routeName = '/category-meals';
 
+  final List<Meal> availabelMeal;
+  
+  CategoryMeals(this.availabelMeal);
+
   @override
   _CategoryMealsState createState() => _CategoryMealsState();
 }
@@ -30,7 +34,7 @@ class _CategoryMealsState extends State<CategoryMeals> {
       this.catgoryTitle = params['title'];
       print(this.catgoryTitle);
 
-      this.displayedMeals = DUMMY_MEALS.where((meal) {
+      this.displayedMeals = widget.availabelMeal.where((meal) {
         return meal.categories.contains(id);
       }).toList();
     }
