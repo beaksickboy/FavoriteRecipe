@@ -64,7 +64,7 @@ class _CategoryMealsState extends State<CategoryMeals> {
             imageUrl: meal.imageUrl,
             affordability: meal.affordability,
             complexity: meal.complexity,
-            removeItem: _removeMeal,
+            // removeItem: _removeMeal,
           );
         },
         itemCount: this.displayedMeals.length,
